@@ -1,0 +1,19 @@
+#include <iostream>
+#include <regex>
+
+int main() {
+    std::string text = "123 456 789";
+    std::regex regex_pattern("\\d+");
+
+    // Declare custom regex iterators
+    MyRegexIterator iter(text.begin(), text.end(), regex_pattern);
+    MyRegexIterator end(text.end(), text.end(), regex_pattern); // Initialize 'end' with end iterator
+
+    // Use custom regex iterators
+    for (; iter != end; ++iter) {
+        // Use iterator
+        std::cout << "Match found: " << iter->str() << std::endl;
+    }
+
+    return 0;
+}
